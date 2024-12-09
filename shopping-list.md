@@ -72,8 +72,8 @@ power_supply_current = 104 W / (0.8 * 24 V ) = 5.4 A
 
 --> EM1-556
 
-| Specification       | Details                        | |
-|---------------------|--------------------------------|-|
+| Specification       | Details                        |
+|---------------------|--------------------------------|
 | Model               | EM1-556                        |
 | Series              | EM                             |
 | Command Source      | PUL&DIR, CW&CCW                |
