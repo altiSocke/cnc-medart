@@ -25,13 +25,12 @@ Vfmax : 65 Vrms
 Po: 104 W
 Type: Unipolar: This refers to the type of motor winding configuration, which is simpler to drive than bipolar motors but may have slightly lower performance.
 
-Total Power 3x: 34.84 W ()
-Po 3x = 312 W 
-Total Power 4x: 46.464 W 
-Po 4x = 416 W
+Total Power
+Po x 3 = 312 W 
+Po x 4 = 416 W
 
 
-8 Pin Unipolar Driver? not a thing. Leadshines and other drivers are 4 lead configurations. 
+8 Pin Unipolar Driver? Not a thing? Leadshines and other drivers are 4 lead configurations. 
 
 8 to 4 lead configurations: 
 [8 lead](https://www.pololu.com/docs/0J88/4)
@@ -60,21 +59,20 @@ Motor Specifications: Consult the motor's datasheet for specific recommendations
 
 > You need to pair the 8 off into 4 wires, usual pairs are red and blue, black and yellow, brown and white, green and orange. Green orange pair goes with brown and white across one channel, and red and blue and black and yellow across other channel. By across I mean one to negative and one to positive. Doesn't matter which way around you wire them, if it goes the wrong direction then simply reverse the wires on one of the channels.
 
-### Calculations
+#### Calculations
 
 ```
-Power_supply_current = Motor_Power / (Driver_Efficiency * Power_supply_Voltage)
+power_supply_current = motor_power / (driver_efficiency * power_supply_voltage)
 ```
 driver_efficiency = 80%
 motor_power = 104 W
 driver power_supply_voltage = 24 V
 power_supply_current = 104 W / (0.8 * 24 V ) = 5.4 A
 
---> EM1-556
+##### EM1-556
 
 | Specification       | Details                        |
 |---------------------|--------------------------------|
-| Model               | EM1-556                        |
 | Series              | EM                             |
 | Command Source      | PUL&DIR, CW&CCW                |
 | Operation Voltage   | 20-50 VDC                      |
@@ -85,8 +83,11 @@ power_supply_current = 104 W / (0.8 * 24 V ) = 5.4 A
 | # of Outputs        | 2                              |
 | Characteristics     | Standard                       |
 | Specification       | Details                        |
+
+##### EM556S
+
+| Specification       | Details                        |
 |---------------------|--------------------------------|
-| Model               | EM556S                         |
 | Series              | EM                             |
 | Command Source      | PUL&DIR, CW&CCW                |
 | Operation Voltage   | 20-50 VDC                      |
@@ -95,7 +96,8 @@ power_supply_current = 104 W / (0.8 * 24 V ) = 5.4 A
 | Logical Voltage     | 5 or 24 VDC                    |
 
 
-Parameters	DM856
+##### DM856
+
 | Parameter              | Min | Typical | Max  | Unit |
 |------------------------|-----|---------|------|------|
 | Output current         | 0.5 | -       | 5.6  (4.0 RMS)  | A    |
@@ -105,25 +107,33 @@ Parameters	DM856
 | Isolation resistance   | 500 | -       | -    | Mohm |
 
 
-Conclusion: EM1-556 could not find supplier
+#### Conclusion
+ 
+EM1-556 could not find supplier
 [3x DM856](https://www.reichelt.com/ch/de/shop/produkt/schrittmotortreiber_nema_23_34_24_-_80_v_5_6_a_2_4-phasig-285311)
 
 
-### Spindle
+### Spindle Driver 
 [MEZ MOHELNICE 4AP71-2](https://shop.pagus.eu/Workshop-Equipment/Blower-/fan/Centrifugal-fan-0-55-kW-2820-rpm::13233.html?XTCsid=3vimstnqmbeic2ism9tl3fu1o6)
 550 W / 0.75 HP --> 220V 
 ```
 550 W / 220 V = 2.5 A 
 ```
 
+Variable frequency drive (VFD) needed.
+We can do that later. Manual control is probably enough, on/off by hand.
+
 TODO: clarify it this has to be controllable by software, throttle through a potentiometer or just on/off by switch.
 
 
 ## Power Supply
 
+### Steppers PS
+
 Rule of thumb: 25% over total req.
-3*104W * 1.25 = 390W
+3*104W * 1.25 = 390W 
 24V --> 16.25 A
+
 
 e.g. [450W 24V 18.8A - 112 Euro](https://www.reichelt.com/ch/de/shop/produkt/schaltnetzteil_geschlossen_450_w_24_v_18_8_a-148050)
 Technische Daten:
@@ -139,4 +149,6 @@ Arbeitstemperatur: -40  +85 °C
 Größe: 218 x 105 x 41 mm
 Gewicht: 1,19 kg
 
-## Misc
+### Spindle PS
+
+TODO?
